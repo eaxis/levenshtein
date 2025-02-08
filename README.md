@@ -73,7 +73,7 @@ func main() {
 
 ## Benchmarks
 
-### Comparisons with other libraries (short strings with threshold)
+### Comparisons with other libraries (short strings with threshold = 2)
 
 ```
 BenchmarkCompetitorsWithThreshold/ASCII_short/eaxis-12 	     61.00 ns/op
@@ -83,7 +83,7 @@ BenchmarkCompetitorsWithThreshold/ASCII_short/dgryski-12     220.3 ns/op
 
 ```
 
-### Comparisons with other libraries (long strings with threshold)
+### Comparisons with other libraries (long strings with threshold = 10)
 
 ```
 BenchmarkCompetitorsWithThreshold/ASCII_long/eaxis-12         1995 ns/op
