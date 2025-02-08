@@ -1,4 +1,4 @@
-# Early-Exit Levenshtein
+# Early-Exit Levenshtein ![Build Status](https://github.com/eaxis/levenshtein/actions/workflows/ci.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/eaxis/levenshtein)](https://goreportcard.com/report/github.com/eaxis/levenshtein) [![PkgGoDev](https://pkg.go.dev/badge/github.com/eaxis/levenshtein)](https://pkg.go.dev/github.com/eaxis/levenshtein)
 
 A [Go](http://golang.org) package to calculate the [Levenshtein Distance](http://en.wikipedia.org/wiki/Levenshtein_distance) with optional early-exit optimization for comparing large texts for similarity.
 
