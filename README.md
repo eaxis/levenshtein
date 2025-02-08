@@ -2,8 +2,8 @@
 
 A [Go](http://golang.org) package to calculate the [Levenshtein Distance](http://en.wikipedia.org/wiki/Levenshtein_distance) with optional early-exit optimization for comparing large texts for similarity.
 
-This library is based on the [agnivade's implementation](https://github.com/agnivade/levenshtein), and without providing a threshold, it works exactly the same.
-But with a threshold, it stops calculating the distance when it exceeds the threshold, and returns the threshold + 1. This optimization saves CPU time when comparing large strings.
+This library is based on [agnivade's implementation](https://github.com/agnivade/levenshtein), and works the same way if no threshold is provided.
+When a threshold is set, the library stops calculating the distance as soon as the distance exceeds the threshold and returns `threshold + 1` instead of calculating the remaining distance, saving significant CPU time when comparing long strings.
 
 The library also nests the following features/limitations:
 - The library is fully capable of working with non-ascii strings. But the strings are not normalized.
