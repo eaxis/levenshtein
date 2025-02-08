@@ -60,8 +60,8 @@ func main() {
 	// And returns the threshold + 1.
 	
 	if distance <= 2 {
-        fmt.Println("The strings are similar.")
-    }
+		fmt.Println("The strings are similar.")
+	}
 }
 
 ```
@@ -91,19 +91,19 @@ BenchmarkCompetitorsWithThreshold/Russian/dgryski-12    ~63692ns
 ### Comparisons with other libraries (short strings)
 
 ```
-name                                       time/op
-BenchmarkCompetitors/Nordic/eaxis-12       ~315ns
-BenchmarkCompetitors/Nordic/agniva-12      ~271ns
-BenchmarkCompetitors/Nordic/arbovm-12      ~714ns
-BenchmarkCompetitors/Nordic/dgryski-12     ~691ns
+name                                                    time/op
+BenchmarkCompetitors/Nordic/eaxis-12                    ~315ns
+BenchmarkCompetitors/Nordic/agniva-12                   ~271ns
+BenchmarkCompetitors/Nordic/arbovm-12                   ~714ns
+BenchmarkCompetitors/Nordic/dgryski-12                  ~691ns
 ```
 
 ### Comparisons with other libraries (long strings)
 
 ```
-name                                       time/op
-BenchmarkCompetitors/Russian/eaxis-12      ~91058ns
-BenchmarkCompetitors/Russian/agniva-12     ~88403ns
-BenchmarkCompetitors/Russian/arbovm-12     ~68272ns
-BenchmarkCompetitors/Russian/dgryski-12    ~65855ns
+name                                                    time/op
+BenchmarkCompetitors/Russian/eaxis-12                   ~91058ns
+BenchmarkCompetitors/Russian/agniva-12                  ~88403ns
+BenchmarkCompetitors/Russian/arbovm-12                  ~68272ns
+BenchmarkCompetitors/Russian/dgryski-12                 ~65855ns
 ```
