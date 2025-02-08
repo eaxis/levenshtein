@@ -261,41 +261,57 @@ func BenchmarkComputeDistanceWithThreshold(b *testing.B) {
 	}
 }
 
-func competitorsBenchmarkCases(threshold int) []benchmarkCase {
+func competitorsBenchmarkCasesShort(threshold int) []benchmarkCase {
 	return []benchmarkCase{
 		// ASCII
 		{
 			"levenshtein",
 			"frankenstein",
 			threshold,
-			"ASCII",
+			"ASCII short",
 		},
 		// Testing acutes and umlauts
 		{
 			"resumé and café",
 			"resumés and cafés",
 			threshold,
-			"French",
+			"French short",
 		},
 		{
 			"Hafþór Júlíus Björnsson",
 			"Hafþor Julius Bjornsson",
 			threshold,
-			"Nordic",
+			"Nordic short",
 		},
 		// Only 2 characters are less in the 2nd string
 		{
 			"།་གམ་འས་པ་་མ།",
 			"།་གམའས་པ་་མ",
 			threshold,
-			"Tibetan",
+			"Tibetan short",
 		},
-		// A long text
 		{
-			"Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля, мне этот мир абсолютно понятен.",
-			"Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля, мне этот мир абсолютно понятен. И я здесь ищу только одного - покоя, умиротворения и вот этой гармонии, от слияния с бесконечно вечным.",
+			"разными ощущениями и разными стремлениями",
+			"разные ощущения и разные стремления",
 			threshold,
-			"Russian",
+			"Russian short",
+		},
+	}
+}
+
+func competitorsBenchmarkCasesLong(threshold int) []benchmarkCase {
+	return []benchmarkCase{
+		{
+			"I am so deeply fulfilled in my understanding that it feels as though I have lived for hundreds of trillions of billions of years on trillions upon trillions of planets just like this Earth. This world is completely clear to me, and here I seek only one thing—peace, tranquility, and harmony, from merging with the infinitely eternal, from contemplating the grand fractal resemblance, and from this marvelous unity of existence. I am so deeply fulfilled in my understanding that it feels as though I have lived for hundreds of trillions of billions of years on trillions upon trillions of planets just like this Earth. This world is completely clear to me, and here I seek only one thing—peace, tranquility, and harmony, from merging with the infinitely eternal, from contemplating the grand fractal resemblance, and from this marvelous unity of existence.",
+			"I am so deeply fulfilled in my understanding that it feels as though I have lived for hundreds of trillions of billions of years on trillions upon trillions of planets just like this Earth. And here I seek only one thing—peace, tranquility, and harmony, from merging with the infinitely eternal, from contemplating the grand fractal resemblance, and from this marvelous unity of existence, infinitely eternal. I am so deeply fulfilled in my understanding that it feels as though I have lived for hundreds of trillions of billions of years on trillions upon trillions of planets just like this Earth. And here I seek only one thing—peace, tranquility, and harmony, from merging with the infinitely eternal, from contemplating the grand fractal resemblance, and from this marvelous unity of existence, infinitely eternal.",
+			threshold,
+			"ASCII long",
+		},
+		{
+			"Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля, мне этот мир абсолютно понятен, и я здесь ищу только одного - покоя, умиротворения и вот этой гармонии, от слияния с бесконечно вечным, от созерцания великого фрактального подобия и от вот этого замечательного всеединства существа. Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля, мне этот мир абсолютно понятен, и я здесь ищу только одного - покоя, умиротворения и вот этой гармонии, от слияния с бесконечно вечным, от созерцания великого фрактального подобия и от вот этого замечательного всеединства существа.",
+			"Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля и я здесь ищу только одного - покоя, умиротворения и вот этой гармонии, от слияния с бесконечно вечным, от созерцания великого фрактального подобия и от вот этого замечательного всеединства существа, бесконечно вечного. Я в своем познании настолько преисполнился, что я как будто бы уже сто триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет, как эта Земля и я здесь ищу только одного - покоя, умиротворения и вот этой гармонии, от слияния с бесконечно вечным, от созерцания великого фрактального подобия и от вот этого замечательного всеединства существа, бесконечно вечного.",
+			threshold,
+			"Russian long",
 		},
 	}
 }
@@ -328,12 +344,20 @@ func benchmarkCompetitors(b *testing.B, cases []benchmarkCase) {
 }
 
 func BenchmarkCompetitors(b *testing.B) {
-	cases := competitorsBenchmarkCases(-1)
+	cases := append(
+		competitorsBenchmarkCasesShort(-1),
+		competitorsBenchmarkCasesLong(-1)...,
+	)
+
 	benchmarkCompetitors(b, cases)
 }
 
 func BenchmarkCompetitorsWithThreshold(b *testing.B) {
-	cases := competitorsBenchmarkCases(2)
+	cases := append(
+		competitorsBenchmarkCasesShort(2),
+		competitorsBenchmarkCasesLong(10)...,
+	)
+
 	benchmarkCompetitors(b, cases)
 }
 
