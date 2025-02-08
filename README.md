@@ -51,16 +51,21 @@ import (
 )
 
 func main() {
-	s1 := "let's say this is a very long string, maybe a post or a comment"
-	s2 := "let's say this is a very long string, maybe a duplicate of a post or a comment"
-	distance := levenshtein.ComputeDistance(s1, s2, 2)
-	fmt.Printf("The distance is %d.\n", distance) // The distance is 3.
-	
-	// The library stops calculating the distance when it exceeds the threshold.
-	// And returns the threshold + 1.
-	
-	if distance <= 2 {
+	similarityThreshold := 10
+
+	// The Levenstein distance between these strings is 47.
+	// Since the similarityThreshold is 10, the function will stop calculating the distance at 10 and return 11.
+	// Which means the distance is greater than the similarityThreshold.
+	s1 := "these strings are completely different and have nothing in common"
+	s2 := "calculating the full distance is just a waste of time"
+
+	distance := levenshtein.ComputeDistance(s1, s2, similarityThreshold)
+	fmt.Printf("The distance is at least %d.\n", distance) // The distance is at least 11.
+
+	if distance <= similarityThreshold {
 		fmt.Println("The strings are similar.")
+	} else {
+		fmt.Println("The strings are not similar.") // this will be printed
 	}
 }
 
