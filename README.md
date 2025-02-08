@@ -76,36 +76,36 @@ func main() {
 ### Comparisons with other libraries (short strings with threshold)
 
 ```
-BenchmarkCompetitorsWithThreshold/ASCII_short/eaxis-12 	     19518529         61.00 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_short/agniva-12      13238353         90.88 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_short/arbovm-12       5306528         221.6 ns/op	      96 B/op	       1 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_short/dgryski-12      5341736         220.3 ns/op	      96 B/op	       1 allocs/op
+BenchmarkCompetitorsWithThreshold/ASCII_short/eaxis-12 	     61.00 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_short/agniva-12      90.88 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_short/arbovm-12      221.6 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_short/dgryski-12     220.3 ns/op
 
 ```
 
 ### Comparisons with other libraries (long strings with threshold)
 
 ```
-BenchmarkCompetitorsWithThreshold/ASCII_long/eaxis-12          522255	       1995 ns/op	    6912 B/op	       2 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_long/agniva-12           1923	     634766 ns/op	    8192 B/op	       3 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_long/arbovm-12           1292	     917835 ns/op	   13824 B/op	       3 allocs/op
-BenchmarkCompetitorsWithThreshold/ASCII_long/dgryski-12          1296	     921690 ns/op	   13824 B/op	       3 allocs/op
+BenchmarkCompetitorsWithThreshold/ASCII_long/eaxis-12         1995 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_long/agniva-12      634766 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_long/arbovm-12      917835 ns/op
+BenchmarkCompetitorsWithThreshold/ASCII_long/dgryski-12     921690 ns/op
 ```
 
 ### Comparisons with other libraries (short strings)
 
 ```
-BenchmarkCompetitors/ASCII_short/eaxis-12              	     10670883	      111.8 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCompetitors/ASCII_short/agniva-12             	     12819114	      91.07 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCompetitors/ASCII_short/arbovm-12             	      5401257	      219.2 ns/op	      96 B/op	       1 allocs/op
-BenchmarkCompetitors/ASCII_short/dgryski-12            	      5349588	      223.7 ns/op	      96 B/op	       1 allocs/op
+BenchmarkCompetitors/ASCII_short/eaxis-12              	     111.8 ns/op
+BenchmarkCompetitors/ASCII_short/agniva-12             	     91.07 ns/op
+BenchmarkCompetitors/ASCII_short/arbovm-12             	     219.2 ns/op
+BenchmarkCompetitors/ASCII_short/dgryski-12            	     223.7 ns/op
 ```
 
 ### Comparisons with other libraries (long strings)
 
 ```
-BenchmarkCompetitors/ASCII_long/eaxis-12               	         1623	     726370 ns/op	    8192 B/op	       3 allocs/op
-BenchmarkCompetitors/ASCII_long/agniva-12              	         1920	     633286 ns/op	    8192 B/op	       3 allocs/op
-BenchmarkCompetitors/ASCII_long/arbovm-12              	         1329	     900986 ns/op	   13824 B/op	       3 allocs/op
-BenchmarkCompetitors/ASCII_long/dgryski-12             	         1282	     912527 ns/op	   13824 B/op	       3 allocs/op
+BenchmarkCompetitors/ASCII_long/eaxis-12               	    726370 ns/op
+BenchmarkCompetitors/ASCII_long/agniva-12              	    633286 ns/op
+BenchmarkCompetitors/ASCII_long/arbovm-12              	    900986 ns/op
+BenchmarkCompetitors/ASCII_long/dgryski-12             	    912527 ns/op
 ```
