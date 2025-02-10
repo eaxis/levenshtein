@@ -243,7 +243,11 @@ func BenchmarkComputeDistance(b *testing.B) {
 	for _, caseEntry := range cases {
 		b.Run(caseEntry.name, func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
-				ComputeDistance(caseEntry.a, caseEntry.b)
+				distance := ComputeDistance(caseEntry.a, caseEntry.b)
+
+				if distance <= caseEntry.threshold {
+					// business logic goes here
+				}
 			}
 		})
 	}
@@ -255,7 +259,11 @@ func BenchmarkComputeDistanceWithThreshold(b *testing.B) {
 	for _, caseEntry := range cases {
 		b.Run(caseEntry.name, func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
-				ComputeDistance(caseEntry.a, caseEntry.b, caseEntry.threshold)
+				distance := ComputeDistance(caseEntry.a, caseEntry.b, caseEntry.threshold)
+
+				if distance <= caseEntry.threshold {
+					// business logic goes here
+				}
 			}
 		})
 	}
@@ -321,22 +329,38 @@ func benchmarkCompetitors(b *testing.B, cases []benchmarkCase) {
 		b.Run(caseEntry.name, func(b *testing.B) {
 			b.Run("eaxis", func(b *testing.B) {
 				for n := 0; n < b.N; n++ {
-					ComputeDistance(caseEntry.a, caseEntry.b, caseEntry.threshold)
+					distance := ComputeDistance(caseEntry.a, caseEntry.b, caseEntry.threshold)
+
+					if distance <= caseEntry.threshold {
+						// business logic goes here
+					}
 				}
 			})
 			b.Run("agniva", func(b *testing.B) {
 				for n := 0; n < b.N; n++ {
-					agnivade.ComputeDistance(caseEntry.a, caseEntry.b)
+					distance := agnivade.ComputeDistance(caseEntry.a, caseEntry.b)
+
+					if distance <= caseEntry.threshold {
+						// business logic goes here
+					}
 				}
 			})
 			b.Run("arbovm", func(b *testing.B) {
 				for n := 0; n < b.N; n++ {
-					arbovm.Distance(caseEntry.a, caseEntry.b)
+					distance := arbovm.Distance(caseEntry.a, caseEntry.b)
+
+					if distance <= caseEntry.threshold {
+						// business logic goes here
+					}
 				}
 			})
 			b.Run("dgryski", func(b *testing.B) {
 				for n := 0; n < b.N; n++ {
-					dgryski.Levenshtein([]rune(caseEntry.a), []rune(caseEntry.b))
+					distance := dgryski.Levenshtein([]rune(caseEntry.a), []rune(caseEntry.b))
+
+					if distance <= caseEntry.threshold {
+						// business logic goes here
+					}
 				}
 			})
 		})
